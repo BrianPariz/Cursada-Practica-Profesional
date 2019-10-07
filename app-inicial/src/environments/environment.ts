@@ -6,7 +6,15 @@ export const environment = {
   production: false
 };
 
-
+export const firebaseConfig = {
+  apiKey: "AIzaSyBINRZEvQwNCtG32XlG2XPVb_iXw6eJz40",
+  authDomain: "practica-profesional-c65b7.firebaseapp.com",
+  databaseURL: "https://practica-profesional-c65b7.firebaseio.com",
+  projectId: "practica-profesional-c65b7",
+  storageBucket: "",
+  messagingSenderId: "61136573216",
+  appId: "1:61136573216:web:3420f453fe83e54f413d45"
+};
 
 /*
  * For easier debugging in development mode, you can import the following file

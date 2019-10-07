@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/servicios/auth.service';
-import { Router } from '@angular/router';
+import { LoadingService } from 'src/app/servicios/loading.service';
 
 @Component({
   selector: 'app-login',
@@ -11,19 +11,22 @@ export class LoginPage implements OnInit {
 
   private email: string;
   private password: string;
+  private loading;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private loadingService: LoadingService) { }
 
   ngOnInit() {
   }
 
   onSubmitLogin() {
+    this.loadingService.showLoading("Espere..");
+
     this.authService.logIn(this.email, this.password)
       .then(res => {
-        this.router.navigate(['/home']);
+        this.loadingService.closeLoadingAndRedirect("/home");
       })
       .catch(err => {
-        alert("Error al loguearse papaaaaaaaa")
-      })
+        this.loadingService.closeLoading("Verifique usuario y contraseña");
+      });
   }
 }
